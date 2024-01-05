@@ -25,7 +25,7 @@ fn nth_most_rarest(numbers: &[i32], n: usize) -> Option<i32> {
 }
 
 fn main() {
-    let numbers = vec![1, 2, 3, 4, 1, 2, 3, 4, 5, 6];
+    let numbers = vec![5,4,5,4,5,4,4,5,3,3,3,3,2,2,1,5];
     let n = 3;
 
     if let Some(result) = nth_most_rarest(&numbers, n) {
