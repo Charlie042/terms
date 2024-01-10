@@ -9,7 +9,7 @@ fn nth_most_rarest(numbers: &[i32], n: usize) -> Option<i32> {
 
     // Create a vector of unique frequencies
     let mut unique_frequencies: Vec<_> = frequency_map.values().collect();
-    unique_frequencies.sort();
+    unique_frequencies.sort_by(|a, b| b.cmp(a)); // Sort frequencies in descending order
 
     // Find the nth rarest frequency
     if let Some(&nth_rarest_frequency) = unique_frequencies.get(unique_frequencies.len().saturating_sub(n)) {
@@ -25,12 +25,12 @@ fn nth_most_rarest(numbers: &[i32], n: usize) -> Option<i32> {
 }
 
 fn main() {
-    let numbers = vec![5,4,5,4,5,4,4,5,3,3,3,3,2,2,1,5];
-    let n = 3;
+    let numbers = vec![5, 4, 5, 4, 5, 4, 4, 5, 3, 3, 3, 3, 2, 2, 1, 5];
+    let numb = 5;
 
-    if let Some(result) = nth_most_rarest(&numbers, n) {
-        println!("The {}-th rarest number is: {}", n, result);
+    if let Some(result) = nth_most_rarest(&numbers, numb) {
+        println!("The {}-th rarest number is: {}", numb, result);
     } else {
-        println!("There is no {}-th rarest number in the list.", n);
+        println!("There is no {}-th rarest number in the list.", numb);
     }
 }
